@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:main_test/models/product.dart';
 import 'package:provider/provider.dart';
+import 'package:main_test/screens/home/products_tile.dart';
 
 class ProductsList extends StatefulWidget {
   @override
@@ -18,8 +19,11 @@ class _ProductsListState extends State<ProductsList> {
       print(product.productDescription);
     });
 
-    return Container(
-      
+    return ListView.builder(
+      itemCount: products.length,
+      itemBuilder: (context, index){
+        return ProductTile(product: products[index]);
+      },
     );
   }
 }
